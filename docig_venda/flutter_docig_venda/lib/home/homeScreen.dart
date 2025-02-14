@@ -8,9 +8,11 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Docig Venda")),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: gerarListaClientes(), 
+      body: SingleChildScrollView( // Fechamento do SingleChildScrollView
+        child: Column( // A Column precisa de um child
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: gerarListaClientes(),
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -24,7 +26,6 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  
   List<Widget> gerarListaClientes() {
     return listaClientes.map((cliente) => ClientePerfil(cliente: cliente)).toList();
   }
